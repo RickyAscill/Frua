@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frua — Ніжність, загорнута в шоколад</title><script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Import all animation stylesheets -->
+<link rel="stylesheet" href="animations-main.css">
+<link rel="stylesheet" href="animations-catalog.css">
+<link rel="stylesheet" href="animations-other.css">
+
+</head><body class="bg-[#f8f5f2]"><!-- NAVBAR -->
+<nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+        <div class="text-4xl font-serif text-[#5c3314]">
+            Frua
+        </div>
+
+        <div class="hidden md:flex gap-8 text-lg">
+            <a href="#catalog">Каталог</a>
+            <a href="#advantages">Переваги</a>
+            <a href="#reviews">Відгуки</a>
+            <a href="#contacts">Контакти</a>
+        </div>
+
+        <button onclick="toggleCart()" class="relative text-2xl">
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span id="cart-count"
+                  class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                0
+            </span>
+        </button>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="max-w-3xl text-white">
+
+            <span class="bg-white/20 px-4 py-2 rounded-full">
+                Преміальна полуниця в шоколаді
+            </span>
+
+            <h1 class="text-6xl md:text-8xl font-serif mt-6 mb-6">
+                Frua
+            </h1>
+
+            <p class="text-xl md:text-2xl mb-10">
+                Створюємо солодкі подарунки для особливих моментів.
+            </p>
+
+            <a href="#catalog"
+               class="bg-[#8b5a2b] px-8 py-4 rounded-2xl inline-block">
+                Переглянути каталог
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ADVANTAGES -->
+<section id="advantages" class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-5xl text-center font-serif mb-16">
+            Чому обирають Frua
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="adv-card">
+                <i class="fa-solid fa-heart text-5xl mb-6"></i>
+                <h3 class="text-2xl mb-4">Ручна робота</h3>
+                <p>Кожен набір створюється вручну.</p>
+            </div>
+
+            <div class="adv-card">
+                <i class="fa-solid fa-seedling text-5xl mb-6"></i>
+                <h3 class="text-2xl mb-4">Свіжі ягоди</h3>
+                <p>Лише якісні інгредієнти.</p>
+            </div>
+
+            <div class="adv-card">
+                <i class="fa-solid fa-gift text-5xl mb-6"></i>
+                <h3 class="text-2xl mb-4">Ідеальний подарунок</h3>
+                <p>Для будь-якого свята.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">
+
+            <h2 class="text-5xl font-serif">
+                Каталог
+            </h2>
+
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Пошук..."
+                    class="px-5 py-3 rounded-2xl border">
+
+                <select
+                    id="sort"
+                    onchange="sortProducts()"
+                    class="px-5 py-3 rounded-2xl border">
+
+                    <option value="">Сортування</option>
+                    <option value="price-low">Спочатку дешевші</option>
+                    <option value="price-high">Спочатку дорожчі</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div id="products"
+             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        </div>
+
+    </div>
+    </section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-24 bg-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-5xl text-center font-serif mb-16">
+            Відгуки
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="review-card">
+                ⭐⭐⭐⭐⭐
+                <p class="mt-4">
+                    Дуже красиво оформлено та неймовірний смак.
+                </p>
+            </div>
+
+            <div class="review-card">
+                ⭐⭐⭐⭐⭐
+                <p class="mt-4">
+                    Замовляла на день народження — усі були в захваті.
+                </p>
+            </div>
+
+            <div class="review-card">
+                ⭐⭐⭐⭐⭐
+                <p class="mt-4">
+                    Найкраща полуниця в шоколаді, яку куштували.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="py-24">
+
+    <div class="max-w-4xl mx-auto px-6">
+
+        <h2 class="text-5xl text-center font-serif mb-16">
+            FAQ
+        </h2>
+
+        <div class="space-y-6">
+
+            <details class="faq-item">
+                <summary>Скільки зберігається продукція?</summary>
+                <p class="mt-4">До 48 годин у холодильнику.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Чи є доставка?</summary>
+                <p class="mt-4">Так, по всій Україні.</p>
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="py-24 bg-white">
+
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+        <h2 class="text-5xl font-serif mb-10">
+            Контакти
+        </h2>
+
+        <p class="mb-3">Instagram: @frua.ua</p>
+        <p class="mb-3">Telegram: @frua_shop</p>
+        <p>+380 XX XXX XX XX</p>
+
+    </div>
+
+</section>
+
+<!-- CART -->
+<div id="cart-modal"
+     class="hidden fixed inset-0 bg-black/50 z-50 flex justify-end">
+
+    <div class="bg-white w-full md:w-[450px] h-full p-6 overflow-y-auto">
+
+        <div class="flex justify-between items-center mb-6">
+
+            <h2 class="text-3xl font-serif">
+                Кошик
+            </h2>
+
+            <button onclick="toggleCart()">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="mt-8 border-t pt-6">
+
+            <div class="flex justify-between text-xl font-semibold">
+                <span>Разом:</span>
+                <span id="cart-total">0 грн</span>
+            </div>
+
+            <button
+                onclick="checkout()"
+                class="w-full mt-6 bg-[#8b5a2b] text-white py-4 rounded-2xl">
+
+                Оформити замовлення
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-[#5c3314] text-white py-12">
+
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-4xl font-serif mb-4">
+            Frua
+        </h2>
+
+        <p>
+            © 2026 Frua. Всі права захищені.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script src="animations.js"></script>
+
+</body>
+</html>
