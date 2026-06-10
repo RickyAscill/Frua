@@ -22,8 +22,14 @@ overflow-x: hidden;
 
 /* NAVBAR */
 
+nav {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
 nav a {
 transition: 0.3s;
+position: relative;
 }
 
 nav a:hover {
@@ -50,11 +56,21 @@ padding: 2rem;
 border-radius: 24px;
 text-align: center;
 transition: 0.3s;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .adv-card:hover {
 transform: translateY(-8px);
 box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.adv-card i {
+  color: #8b5a2b;
+  transition: 0.3s;
+}
+
+.adv-card:hover i {
+  transform: scale(1.1);
 }
 
 /* PRODUCTS */
@@ -64,6 +80,7 @@ background: white;
 border-radius: 24px;
 overflow: hidden;
 transition: 0.35s;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .product-card:hover {
@@ -82,6 +99,41 @@ transition: 0.35s;
 transform: scale(1.05);
 }
 
+.product-card button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(139, 90, 43, 0.25);
+}
+
+/* Quantity buttons styling */
+.product-card .border-2 {
+  border-color: #8b5a2b !important;
+  background: white;
+  border-radius: 12px;
+}
+
+.product-card .border-2 button {
+  color: #8b5a2b;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.product-card .border-2 button:hover {
+  background-color: #f8f5f2 !important;
+  transform: scale(1.1);
+}
+
+.product-card .border-2 span {
+  color: #8b5a2b;
+  font-weight: bold;
+}
+
 /* REVIEWS */
 
 .review-card {
@@ -89,10 +141,12 @@ background: #f8f5f2;
 padding: 2rem;
 border-radius: 24px;
 transition: 0.3s;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .review-card:hover {
 transform: translateY(-6px);
+box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 /* FAQ */
@@ -102,17 +156,36 @@ background: white;
 border-radius: 20px;
 padding: 1.5rem;
 cursor: pointer;
-box-shadow: 0 5px 15px rgba(0,0,0,.05);
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 .faq-item summary {
 font-weight: 600;
+transition: 0.3s;
+}
+
+.faq-item summary:hover {
+  color: #8b5a2b;
+}
+
+.faq-item[open] summary {
+  color: #8b5a2b;
 }
 
 /* CART */
 
 #cart-modal {
 backdrop-filter: blur(5px);
+transition: opacity 0.3s ease;
+}
+
+#cart-modal > div {
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
 }
 
 #cart-items {
@@ -121,10 +194,49 @@ flex-direction: column;
 gap: 20px;
 }
 
+.cart-item-wrapper {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.cart-item-wrapper:hover {
+  background: #f8f5f2;
+}
+
+/* SEARCH & FILTER */
+
+#search,
+#sort {
+  border: 2px solid #e5dbd3;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+#search:focus,
+#sort:focus {
+  outline: none;
+  border-color: #8b5a2b;
+  box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+}
+
+#search::placeholder {
+  color: #999;
+}
+
 /* FOOTER */
 
 footer {
 margin-top: 0;
+background: linear-gradient(135deg, #5c3314 0%, #4a2610 100%);
+transition: 0.3s;
+}
+
+footer:hover {
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+}
+
+footer h2 {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 /* SCROLLBAR */
@@ -140,6 +252,11 @@ background: #f8f5f2;
 ::-webkit-scrollbar-thumb {
 background: #8b5a2b;
 border-radius: 999px;
+transition: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #6d4410;
 }
 
 /* MOBILE */
@@ -158,4 +275,33 @@ h2 {
     font-size: 2.5rem !important;
 }
 
+.product-card {
+    margin: 0 auto;
+}
+
+#cart-modal > div {
+    width: 100% !important;
+}
+
+}
+
+/* LOADING STATE */
+
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Pulse animation for badges */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+#cart-count {
+  animation: none;
 }
